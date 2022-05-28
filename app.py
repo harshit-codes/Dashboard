@@ -20,7 +20,7 @@ app.layout = html.Div([
 @app.callback(Output('display-value', 'children'),
                 [Input('dropdown', 'value')])
 def display_value(value):
-    return f'You have selected {value}'
+    return f'Your location is {value}'
 
 if __name__ == '__main__':
     app.run_server(debug=True)
