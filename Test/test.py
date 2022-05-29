@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-import pymongo
+import pymongo, pandas as pd
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,8 +17,10 @@ print("mongodb+srv://harshit:K7W1QMAKsO4rJoT2@cluster0.mowez.mongodb.net/?retryW
 from pymongo import MongoClient
 client = MongoClient(CONNECTION_STRING)
 
-db = client["UserData"]
-collection = db["Flask_mongo"]
+databaseList = client.list_database_names()
+databseFocus = 'Dashboard'
 
-collection.insert_one({"user_name":"1"})
-collection.insert_one({"user_name":"2"})
+db = client[databseFocus]
+collectionList = db.list_collection_names()
+
+print()
